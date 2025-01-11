@@ -6,7 +6,7 @@ import { ThemeProvider } from './components/ThemeProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'GroupGear',
+  title: 'Manifest',
   description: 'Plan activities with ease',
 }
 
