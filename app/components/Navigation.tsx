@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useTheme } from 'next-themes'
 import { Menu, X, Home, Layout, FileText, Mail, User, Sun, Moon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { SignedIn, SignedOut, UserButton, SignInButton } from '@clerk/nextjs'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -43,6 +44,7 @@ const Navigation = () => {
             </div>
           </div>
           <div className="flex items-center">
+            {/* Theme Toggle */}
             <Button
               variant="ghost"
               size="icon"
@@ -53,6 +55,20 @@ const Navigation = () => {
               <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               <span className="sr-only">Toggle theme</span>
             </Button>
+
+            {/* Clerk Authentication */}
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <SignInButton>
+                <Button variant="ghost" size="sm">
+                  Sign In
+                </Button>
+              </SignInButton>
+            </SignedOut>
+
+            {/* Mobile Menu Toggle */}
             <div className="md:hidden">
               <Button
                 variant="ghost"
@@ -66,6 +82,7 @@ const Navigation = () => {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -88,4 +105,3 @@ const Navigation = () => {
 }
 
 export default Navigation
-
