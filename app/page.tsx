@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
 export default function Home() {
@@ -10,10 +9,10 @@ export default function Home() {
       </p>
       <div className="space-x-4">
         <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-          <Link href="/signup">Sign Up</Link>
+          <a href="/sign-up">Sign Up</a>
         </Button>
         <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
-          <Link href="/login">Login</Link>
+          <a href="/sign-in">Login</a>
         </Button>
       </div>
     </div>
